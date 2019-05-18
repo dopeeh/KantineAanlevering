@@ -1,3 +1,11 @@
+/**
+ * 
+ * Opdracht 1, klasse Artikel
+ * 
+ * @author koen
+ *
+ */
+
 public class Artikel {
 	private String naam;
 	private double prijs;
