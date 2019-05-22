@@ -8,16 +8,19 @@ public class Datum {
 	   * Constructor
 	   */
 	public Datum(int dag, int maand, int jaar) {
+		this();
+		
 		if (bestaatDatum(dag, maand, jaar)) {
 			this.dag = dag;
 			this.maand = maand;
 			this.jaar = jaar;
-		} else {
-			this.dag = 0;
-			this.maand = 0;
-			this.jaar = 0;
-		}
-		
+		} 
+	}
+	
+	public Datum() {
+		this.dag = 0;
+		this.maand = 0;
+		this.jaar = 0;
 	}
 	
 	public boolean bestaatDatum(int dag, int maand, int jaar){
@@ -49,8 +52,24 @@ public class Datum {
 	 * @return Geboortedatum
 	 */
 	public String getDatumAsString() {
-		// TODO
-		return "";
+		String result = "";
+		if (dag < 10) { 
+			result += "0" + dag;
+		} else {
+			result += dag;
+		}
+		
+		result += "-";
+		
+		if (maand < 10) {
+			result += "0" + maand;
+		} else {
+			result += maand;
+		}
+		
+		result += "-" + jaar;
+		
+		return result;
 		}
 
 	public int getDag() {
