@@ -30,12 +30,12 @@ public class Persoon {
 		this.voornaam = voornaam;
 	}
 	
-	public void setAchternaam (String achterrnaam) {
+	public void setAchternaam (String achternaam) {
 		this.achternaam = achternaam;
 	}
 	
-	public void setGeboortenaam (String geboortenaam) {
-		this.geboortenaam = geboortenaam;
+	public void setGeboortedatum (String geboortedatum) {
+		this.geboortedatum = geboortedatum;
 	}
 	
 	public void setGeslacht (char geslacht) {
@@ -55,7 +55,7 @@ public class Persoon {
 	}
 	
 	public String getGeboortedatum(Datum datum) {
-		return getDatumAsString;
+		return "niks"; //getDatumAsString;
 	}
 	
 	public char getGeslacht() {
