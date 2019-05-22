@@ -21,8 +21,26 @@ public class Datum {
 	}
 	
 	public boolean bestaatDatum(int dag, int maand, int jaar){
-		
-		
+		//generieke controle op valide ints
+		if (dag >= 1 && maand >= 1 && maand <= 12 && jaar >= 1900 && jaar <= 2100) {
+			
+			//Maanden met 31 dagen
+			if ((maand == 1 || maand == 3 || maand == 5 || maand == 7 || maand == 8 || maand == 10 || maand == 12 ) && dag <= 31) {
+				return true;
+				
+			//Maand met 29 of 28 dagen
+			} else if(maand == 2) {
+				if (jaar % 4 == 0 && dag <= 29) {
+					return true;
+				} else if (dag <= 28){
+					return true;
+				}
+				
+			//OVerige maanden met 30 dagen
+			} else if (dag <= 30) {
+				return true;
+			}
+		}
 		return false;
 	}
 	
