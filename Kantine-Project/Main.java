@@ -4,8 +4,20 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Datum date = new Datum(14, 6, 1995);
+		Artikel banaan = new Artikel("banaan", 2.60);
+		Artikel appel = new Artikel("appel", 5.50);
+		Persoon koen = new Persoon(120394, "Koen", "Dekker", "14-06-1995", 'm');
 		
-		System.out.println(date.getDatumAsString());
+		Dienblad dienblad = new Dienblad(koen);
+		
+		dienblad.voegToe(banaan);
+		dienblad.voegToe(appel);
+		
+		KassaRij kassarij = new KassaRij();
+		Kassa kassa = new Kassa(kassarij);
+		
+		kassa.sluitAchteraan(dienblad);
+		kassa.rekenAf(dienblad);
+		
 	}
 }

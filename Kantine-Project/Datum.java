@@ -17,6 +17,18 @@ public class Datum {
 		} 
 	}
 	
+	public Datum(String datum) {
+		this();
+		//Pak datum als string en split op "-"
+		String[] datumAsArray = datum.split("\\-");
+		
+		if ( bestaatDatum( Integer.parseInt(datumAsArray[0]), Integer.parseInt(datumAsArray[1]), Integer.parseInt(datumAsArray[2]) ) ) {
+			this.dag = Integer.parseInt(datumAsArray[0]);
+			this.maand = Integer.parseInt(datumAsArray[1]);
+			this.jaar = Integer.parseInt(datumAsArray[2]);
+		}
+	}
+	
 	public Datum() {
 		this.dag = 0;
 		this.maand = 0;

@@ -2,7 +2,9 @@ import java.util.Iterator;
 
 public class Kassa {
 	KassaRij kassarij;
-	int geldInKassa;
+	double totaalGeld;
+	int totaalArtikelen = 0;
+	double geldInKassa;
 
     /**
      * Constructor
@@ -20,7 +22,14 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     public void rekenAf(Dienblad klant) {
-       geldInKassa += kassarij.eerstePersoonInRij().getTotaalPrijs();
+    	System.out.println("Er zitten " + klant.getAantalArtikelen() + " aantal artikelen in " + klant.getKlant() + " zijn dienblad.");
+    	
+    	//Daadwerkelijke berekeningen
+    	totaalArtikelen += klant.getAantalArtikelen();
+    	totaalGeld += klant.getTotaalPrijs();
+    	geldInKassa += klant.getTotaalPrijs();
+    	
+    	System.out.println("Het totaal zit nu op: " + totaalGeld);
     }
 
     /**
@@ -30,7 +39,7 @@ public class Kassa {
      * @return aantal artikelen
      */
     public int aantalArtikelen() {
-        
+        return totaalArtikelen;
     }
 
     /**
@@ -41,7 +50,7 @@ public class Kassa {
      * @return hoeveelheid geld in de kassa
      */
     public double hoeveelheidGeldInKassa() {
-        // method body omitted
+        return geldInKassa;
     }
 
     /**
@@ -49,6 +58,11 @@ public class Kassa {
      * de totale hoeveelheid geld in de kassa.
      */
     public void resetKassa() {
-        // method body omitted
+        totaalArtikelen = 0;
+        geldInKassa = 0;
+    }
+    
+    public void sluitAchteraan(Dienblad dienblad) {
+    	kassarij.sluitAchteraan(dienblad);
     }
 }

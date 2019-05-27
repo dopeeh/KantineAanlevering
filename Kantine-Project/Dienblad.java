@@ -11,9 +11,12 @@ public class Dienblad {
      * Constructor
      */
     public Dienblad() {
+    	artikelen = new ArrayList<>();
     }
     
     public Dienblad(Persoon klant) {
+    	this();
+    	
     	this.klant = klant;
     }
 
@@ -42,12 +45,22 @@ public class Dienblad {
      * @return De totaalprijs
      */
     public double getTotaalPrijs() {
-        //Iterator iterator = artikelen.iterator();
-    	totaalPrijs = 0;
+//      Iterator iterator = artikelen.iterator();
+    	totaalPrijs = 0.00;
     	
-        artikelen.forEach((n) -> {
-        	totaalPrijs += n.getPrijs();
-        }) ;
+//      for (Artikel artikel: artikelen) {
+//      	totaalPrijs += artikel.getPrijs();
+//      }
+    	
+//    	while(iterator.hasNext()) {
+//    		totaalPrijs += ((Artikel) iterator.next()).getPrijs();
+//    	}
+    	
+    	artikelen.forEach((a) -> {
+    		totaalPrijs += a.getPrijs();
+    	});
+    	
+    	
         return totaalPrijs;
     }
     
