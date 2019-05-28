@@ -17,9 +17,8 @@ public class Kantine {
      * en plaats deze op het dienblad. Tenslotte sluit de
      * Persoon zich aan bij de rij voor de kassa.
      */
-    public void loopPakSluitAan() {
+    public void loopPakSluitAan(Persoon persoon, String[] artikelnamen) {
         // method body omitted
-    	Persoon persoon = new Persoon();
     	Dienblad dienblad = new Dienblad(persoon);
     	
     	Artikel appel = new Artikel("appel", 1);
