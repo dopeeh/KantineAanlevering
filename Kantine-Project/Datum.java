@@ -46,7 +46,13 @@ public class Datum {
 			//Maand met 29 of 28 dagen
 			} else if(maand == 2) {
 				if (jaar % 4 == 0 && dag <= 29) {
-					return true;
+					
+					//Is het jaar deelbaar door 100 en niet door 400 dan is het geen schrikkeljaar.
+					if(jaar % 100 == 0) {
+						if(jaar % 400 == 0)
+							return true;
+						return false;
+					}
 				} else if (dag <= 28){
 					return true;
 				}
