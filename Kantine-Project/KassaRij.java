@@ -3,13 +3,13 @@ import java.util.LinkedList;
 
 public class KassaRij {
 	
-	ArrayList<Dienblad> rij;
+	LinkedList<Dienblad> rij;
 
     /**
      * Constructor
      */
     public KassaRij() {
-        rij = new ArrayList<>();
+        rij = new LinkedList<>();
     }
 
     /**
