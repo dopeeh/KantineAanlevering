@@ -22,14 +22,34 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     public void rekenAf(Dienblad klant) {
-    	System.out.println("Er zitten " + klant.getAantalArtikelen() + " aantal artikelen in " + klant.getKlant() + " zijn dienblad.");
+    	System.out.println("Er zitten " + getAantalArtikelenDienblad(klant) + " aantal artikelen in " + klant.getKlant() + " zijn dienblad.");
     	
     	//Daadwerkelijke berekeningen
-    	totaalArtikelen += klant.getAantalArtikelen();
-    	totaalGeld += klant.getTotaalPrijs();
-    	geldInKassa += klant.getTotaalPrijs();
+    	totaalArtikelen += getAantalArtikelenDienblad(klant);
+    	totaalGeld += getTotaalPrijsDienblad(klant);
+    	geldInKassa += getTotaalPrijsDienblad(klant);
     	
     	System.out.println("Het totaal zit nu op: " + totaalGeld);
+    }
+    
+    public double getTotaalPrijsDienblad(Dienblad dienblad) {
+    	double totaalPrijs = 0;
+    	Iterator iterator = dienblad.getArtikelen().iterator();
+    	
+    	while(iterator.hasNext()) {
+    		totaalPrijs += ((Artikel) iterator.next()).getPrijs();
+    	}
+    	return totaalPrijs;
+    }
+    
+    public int getAantalArtikelenDienblad(Dienblad dienblad) {
+    	int aantalArtikelen = 0;
+    	Iterator iterator = dienblad.getArtikelen().iterator();
+    	
+    	while(iterator.hasNext()) {
+    		aantalArtikelen += dienblad.getArtikelen().size();
+    	}
+    	return 0;
     }
 
     /**
