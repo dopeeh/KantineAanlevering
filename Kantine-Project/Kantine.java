@@ -22,11 +22,10 @@ public class Kantine {
         // method body omitted
     	Dienblad dienblad = new Dienblad(persoon);
     	
-    	Artikel appel = new Artikel("appel", 1);
-    	Artikel peer = new Artikel("peer", 1.20);
-    	
-    	dienblad.voegToe(appel);
-    	dienblad.voegToe(peer);
+    	for(String artikelnaam: artikelnamen) 
+    	{
+    	dienblad.voegToe(kantineaanbod.getArtikel(artikelnaam));
+    	}
     	
     	kassarij.sluitAchteraan(dienblad);
 
