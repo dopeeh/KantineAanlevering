@@ -51,8 +51,8 @@ public class Kantine {
     	return kassa;
     }
     
-    public void setKantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid) {
-    	kantineaanbod = new KantineAanbod(artikelnaam, prijs, hoeveelheid);
+    public void setKantineAanbod(KantineAanbod kantineaanbod) {
+    	this.kantineaanbod = kantineaanbod;
     }
     
     public KantineAanbod getKantineAanbod() {
