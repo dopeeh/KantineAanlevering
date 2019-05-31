@@ -108,13 +108,16 @@ public class KantineSimulatie {
         // for lus voor dagen
         for(int i = 0; i < dagen; i++) {
 
-            // bedenk hoeveel personen vandaag binnen lopen
+            // Willekeurig aantal mensen binnen de aangegeven scope
             int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
 
             // laat de personen maar komen...
             for(int j = 0; j < aantalpersonen; j++) {
 
                 // maak persoon en dienblad aan, koppel ze
+            	Persoon klant = new Persoon();
+                Dienblad dienblad = new Dienblad(klant);
+            	
                 // en bedenk hoeveel artikelen worden gepakt
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
 
