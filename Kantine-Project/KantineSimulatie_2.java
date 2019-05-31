@@ -129,6 +129,7 @@ public class KantineSimulatie {
 
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
+                this.kantine.loopPakSluitAan(persoon, artikelnaam);
 
             }
 
