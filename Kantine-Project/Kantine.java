@@ -18,15 +18,15 @@ public class Kantine {
      * en plaats deze op het dienblad. Tenslotte sluit de
      * Persoon zich aan bij de rij voor de kassa.
      */
-    public void loopPakSluitAan(Persoon persoon, String[] artikelnamen) {
+    public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen) {
         // method body omitted
-    	Dienblad dienblad = new Dienblad(persoon);
+    	//Dienblad dienblad = new Dienblad(persoon);
     	
     	for(String artikelnaam: artikelnamen) 
     	{
     	dienblad.voegToe(kantineaanbod.getArtikel(artikelnaam));
     	}
-    	
+
     	kassarij.sluitAchteraan(dienblad);
 
     }
@@ -35,10 +35,14 @@ public class Kantine {
      * Deze methode handelt de rij voor de kassa af.
      */
     public void verwerkRijVoorKassa() {
-        while(kassarij.erIsEenRij()) {
-            // omitted
-        	kassa.rekenAf(kassarij.eerstePersoonInRij());
-        }
+    	int lengteRij = kassarij.getSize();
+    	for(int i = 0; i < lengteRij; i++) {
+    		kassa.rekenAf(kassarij.eerstePersoonInRij());
+    	}
+//        while(kassarij.erIsEenRij()) {
+//        	System.out.println(kassarij.erIsEenRij());
+//        	kassa.rekenAf(kassarij.eerstePersoonInRij());
+//        }
     }
     
     /**
@@ -48,6 +52,10 @@ public class Kantine {
      */
     public Kassa getKassa() {
     	return kassa;
+    }
+    
+    public KassaRij getKassaRij() {
+    	return kassarij;
     }
     
     public void setKantineAanbod(KantineAanbod kantineaanbod) {

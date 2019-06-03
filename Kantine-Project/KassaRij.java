@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Queue;
 import java.util.LinkedList;
 
 public class KassaRij {
 	
-	LinkedList<Dienblad> rij;
+	Queue<Dienblad> rij;
 
     /**
      * Constructor
@@ -29,9 +30,7 @@ public class KassaRij {
      * @return Eerste klant in de rij of null
      */
     public Dienblad eerstePersoonInRij() {
-        Dienblad klantAanDeBeurt = rij.get(0);
-        rij.remove(0);
-        return klantAanDeBeurt;
+        return rij.poll();
     }
 
     /**
@@ -40,8 +39,12 @@ public class KassaRij {
      * @return Of er wel of geen rij bestaat
      */
     public boolean erIsEenRij() {
-        if(rij.size() > 0)
+        if(rij.peek() != null)
         	return true;
         return false;
+    }
+    
+    public int getSize() {
+    	return rij.size();
     }
 }

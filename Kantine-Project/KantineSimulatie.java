@@ -4,9 +4,6 @@ public class KantineSimulatie {
 
     // kantine
     private Kantine kantine;
-    
-    // kassa
-    private Kassa kassa;
 
     // kantineaanbod
     private KantineAanbod kantineaanbod;
@@ -16,6 +13,9 @@ public class KantineSimulatie {
 
     // aantal artikelen
     private static final int AANTAL_ARTIKELEN = 4;
+    
+    // aantal dagen te simuleren
+    //private static final int DAGEN = 0;
 
     // artikelen
     private static final String[] artikelnamen = new String[]
@@ -42,7 +42,6 @@ public class KantineSimulatie {
      */
     public KantineSimulatie() {
         kantine = new Kantine();
-        kassa = kantine.getKassa();
         random = new Random();
         int[] hoeveelheden = getRandomArray(
             AANTAL_ARTIKELEN,
@@ -111,15 +110,18 @@ public class KantineSimulatie {
     public void simuleer(int dagen) {
         // for lus voor dagen
         for(int i = 0; i < dagen; i++) {
+        	
+        	//System.out.println("Begin van de dag." );
 
             // Willekeurig aantal mensen binnen de aangegeven scope
             int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
 
             // laat de personen maar komen...
             for(int j = 0; j < aantalpersonen; j++) {
-
+            	
                 // maak persoon en dienblad aan, koppel ze
             	Persoon klant = new Persoon();
+            	Dienblad dienblad = new Dienblad(klant);
             	
                 // en bedenk hoeveel artikelen worden gepakt
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
@@ -135,23 +137,44 @@ public class KantineSimulatie {
 
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
-                kantine.loopPakSluitAan(klant, artikelen);
+                kantine.loopPakSluitAan(dienblad, artikelen);
 
             }
 
             // verwerk rij voor de kassa
             kantine.verwerkRijVoorKassa();
-            	
+            
+            //System.out.println("Eind van de dag." );
+            
+            
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
-            double totaalGeld = kassa.hoeveelheidGeldInKassa();
-            int totaalAantalArtikelen = kassa.aantalArtikelen();
+            double totaalGeld = kantine.getKassa().hoeveelheidGeldInKassa();
+            int totaalAantalArtikelen = kantine.getKassa().aantalArtikelen();
              	
             System.out.println("Er zijn vandaag " + aantalpersonen + " personen aangekomen." );
             System.out.println("De dagtotalen voor de dag zijn: " + totaalGeld + " euro, " + totaalAantalArtikelen + " producten." );
 
             // reset de kassa voor de volgende dag
-            kassa.resetKassa();
+            kantine.getKassa().resetKassa();
         }
     }
+    
+    public static void main(String[] args) {
+    	int dagen;
+    	
+    	if (args.length == 0) {
+    		dagen = 7;
+    	} else {
+    		dagen = Integer.parseInt(args[0]);
+    	}
+    	
+    	KantineSimulatie ks = new KantineSimulatie();
+		ks.simuleer(dagen);
+		
+		int test = ks.getRandomValue(1, 2);
+		
+		System.out.println(test);
+
+	}
 }

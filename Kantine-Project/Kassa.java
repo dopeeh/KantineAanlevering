@@ -2,7 +2,6 @@ import java.util.Iterator;
 
 public class Kassa {
 	KassaRij kassarij;
-	double totaalGeld;
 	int totaalArtikelen = 0;
 	double geldInKassa;
 
@@ -21,17 +20,18 @@ public class Kassa {
      *
      * @param klant die moet afrekenen
      */
-    public void rekenAf(Dienblad klant) {
-    	System.out.println("Er zitten " + getAantalArtikelenDienblad(klant) + " aantal artikelen in " + klant.getKlant() + " zijn dienblad.");
-    	
+    public void rekenAf(Dienblad klant) {    	
     	//Daadwerkelijke berekeningen
     	totaalArtikelen += getAantalArtikelenDienblad(klant);
-    	totaalGeld += getTotaalPrijsDienblad(klant);
     	geldInKassa += getTotaalPrijsDienblad(klant);
-    	
-    	System.out.println("Het totaal zit nu op: " + totaalGeld);
     }
     
+    /**
+     * Berekent de totaalprijs van de artikelen in het gegeven dienblad.
+     * 
+     * @param dienblad
+     * @return totaalprijs van het dienblad
+     */
     public double getTotaalPrijsDienblad(Dienblad dienblad) {
     	double totaalPrijs = 0;
     	Iterator iterator = dienblad.getArtikelen().iterator();
@@ -42,14 +42,21 @@ public class Kassa {
     	return totaalPrijs;
     }
     
+    /**
+     * Geeft het aantal artikelen in het dienblad terug.
+     * 
+     * @param dienblad
+     * @return integer voor het aantal artikelen.
+     */
     public int getAantalArtikelenDienblad(Dienblad dienblad) {
     	int aantalArtikelen = 0;
     	Iterator iterator = dienblad.getArtikelen().iterator();
     	
     	while(iterator.hasNext()) {
-    		aantalArtikelen += dienblad.getArtikelen().size();
+    		iterator.next();
+    		aantalArtikelen++;
     	}
-    	return 0;
+    	return aantalArtikelen;
     }
 
     /**
