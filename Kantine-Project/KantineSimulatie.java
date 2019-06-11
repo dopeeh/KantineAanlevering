@@ -179,8 +179,15 @@ public class KantineSimulatie {
 		
 		int[] testing1 = {45, 56, 34, 39, 40, 31};
 		double[] testing2 = {567.70, 498.25, 458.90};
+		double[] testing3 = {20, 30, 20, 30, 10, 40, 50, 60, 30, 70};
 		
-		System.out.println(Administratie.berekenGemiddeldAantal(testing1));
-		System.out.println(Administratie.berekenGemiddeldeOmzet(testing2));
+		//System.out.println(Administratie.berekenGemiddeldAantal(testing1));
+		//System.out.println(Administratie.berekenGemiddeldeOmzet(testing2));
+		
+		double[] result = Administratie.berekenDagOmzet(testing3);
+		
+		for(double dik: result) {
+			System.out.println(dik);
+		}
 	}
 }
