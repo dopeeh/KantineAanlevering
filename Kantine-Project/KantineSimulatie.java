@@ -115,13 +115,26 @@ public class KantineSimulatie {
 
             // Willekeurig aantal mensen binnen de aangegeven scope
             //int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+        	int aantalPersonen = 100;
         	int aantalStudenten = 89;
 
             // laat de personen maar komen...
-            for(int j = 0; j < aantalStudenten; j++) {
+            for(int j = 0; j < aantalPersonen; j++) {
             	
                 // maak persoon en dienblad aan, koppel ze
-            	Persoon klant = new Student();
+            	Persoon klant;
+            	if (j >= 0 && j <= 89)
+            	{
+                	klant = new Student();
+            	}
+            	if (j >= 90 && j <= 99)
+            	{
+                	klant = new Docent();
+            	}
+            	if (j == 100)
+            	{
+                	klant = new KantineMedewerker();
+            	}
             	Dienblad dienblad = new Dienblad(klant);
             	
                 // en bedenk hoeveel artikelen worden gepakt
