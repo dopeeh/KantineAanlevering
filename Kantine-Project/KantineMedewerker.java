@@ -5,7 +5,7 @@ public class KantineMedewerker extends Persoon {
 	public boolean kassatoegestaan;
 	
 
-	public KantineMedewerker(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht) {
+	public KantineMedewerker(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, int medewerkernummer, boolean kassatoegestaan) {
 		super(BSN, voornaam, achternaam, geboortedatum, geslacht);
 		// TODO Auto-generated constructor stub
 		
@@ -34,7 +34,6 @@ public class KantineMedewerker extends Persoon {
 	
 	public boolean getKassatoegestaan() {
 		return kassatoegestaan;
-	}
 	}
 
 }
