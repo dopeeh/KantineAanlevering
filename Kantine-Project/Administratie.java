@@ -39,18 +39,18 @@ public class Administratie {
      * @return array (7 elementen) met dagomzetten
      */
 
-//    public static double[] berekenDagOmzet(double[] omzet) {
-//        double[] temp = new double[7];
-//        for(int i = 0; i < 7; i++) {
-//
-//            int j = 0;
-//            while() {
-//                temp[i] += omzet[i + 7 * j];
-//
-//                // omitted
-//
-//            }
-//        }
-//        return temp;
-//    }
+    public static double[] berekenDagOmzet(double[] omzet) {
+        double[] temp = new double[7];
+        for(int i = 0; i < 7; i++) {
+
+            int j = 0;
+            while() {
+                temp[i] += omzet[i + 7 * j];
+
+                // omitted
+
+            }
+        }
+        return temp;
+    }
 }
