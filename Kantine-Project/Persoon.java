@@ -20,6 +20,7 @@ public class Persoon {
 		this.achternaam = "default";
 		this.geboortedatum = new Datum();
 		this.geslacht = 0;
+		
 	}
 	
 	public void setBSN (int BSN) {
