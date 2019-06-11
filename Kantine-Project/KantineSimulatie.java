@@ -114,13 +114,29 @@ public class KantineSimulatie {
         	//System.out.println("Begin van de dag." );
 
             // Willekeurig aantal mensen binnen de aangegeven scope
-            int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+            //int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+        	int aantalPersonen = 100;
 
             // laat de personen maar komen...
-            for(int j = 0; j < aantalpersonen; j++) {
+            for(int j = 0; j < aantalPersonen; j++) {
             	
+            	int k = getRandomValue(1, 100);
                 // maak persoon en dienblad aan, koppel ze
-            	Persoon klant = new Persoon();
+            	
+            	Persoon klant = null;
+            	if (k >= 1 && k <= 89)
+            	{
+                	klant = new Student();
+            	}
+            	if (k >= 90 && k <= 99)
+            	{
+                	klant = new Docent();
+            	}
+            	if (k == 100)
+            	{
+                	klant = new KantineMedewerker();
+            	}
+            	
             	Dienblad dienblad = new Dienblad(klant);
             	
                 // en bedenk hoeveel artikelen worden gepakt
@@ -153,7 +169,7 @@ public class KantineSimulatie {
             double totaalGeld = kassa.hoeveelheidGeldInKassa();
             int totaalAantalArtikelen = kassa.aantalArtikelen();
              	
-            System.out.println("Er zijn vandaag " + aantalpersonen + " personen aangekomen." );
+            System.out.println("Er zijn vandaag " + aantalPersonen + " personen aangekomen." );
             System.out.println("De dagtotalen voor de dag zijn: " + totaalGeld + " euro, " + totaalAantalArtikelen + " producten." );
 
             // reset de kassa voor de volgende dag
