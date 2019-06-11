@@ -25,8 +25,8 @@ public class KantineSimulatie {
     private static double[] artikelprijzen = new double[]{1.50, 2.10, 1.65, 1.65};
 
     // minimum en maximum aantal artikelen per soort
-    private static final int MIN_ARTIKELEN_PER_SOORT = 10000;
-    private static final int MAX_ARTIKELEN_PER_SOORT = 20000;
+    private static final int MIN_ARTIKELEN_PER_SOORT = 10;
+    private static final int MAX_ARTIKELEN_PER_SOORT = 20;
 
     // minimum en maximum aantal personen per dag
     private static final int MIN_PERSONEN_PER_DAG = 50;
@@ -147,11 +147,12 @@ public class KantineSimulatie {
             
             //System.out.println("Eind van de dag." );
             
+            Kassa kassa = kantine.getKassa();
             
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
-            double totaalGeld = kantine.getKassa().hoeveelheidGeldInKassa();
-            int totaalAantalArtikelen = kantine.getKassa().aantalArtikelen();
+            double totaalGeld = kassa.hoeveelheidGeldInKassa();
+            int totaalAantalArtikelen = kassa.aantalArtikelen();
              	
             System.out.println("Er zijn vandaag " + aantalpersonen + " personen aangekomen." );
             System.out.println("De dagtotalen voor de dag zijn: " + totaalGeld + " euro, " + totaalAantalArtikelen + " producten." );
@@ -171,11 +172,16 @@ public class KantineSimulatie {
     	}
     	
     	KantineSimulatie ks = new KantineSimulatie();
-		ks.simuleer(dagen);
+		//ks.simuleer(dagen);
 		
 		int test = ks.getRandomValue(1, 2);
 		
 		System.out.println(test);
-
+		
+		int[] testing1 = {45, 56, 34, 39, 40, 31};
+		double[] testing2 = {567.70, 498.25, 458.90};
+		
+		System.out.println(Administratie.berekenGemiddeldAantal(testing1));
+		System.out.println(Administratie.berekenGemiddeldeOmzet(testing2));
 	}
 }
