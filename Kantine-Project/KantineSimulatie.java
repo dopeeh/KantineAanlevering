@@ -114,7 +114,8 @@ public class KantineSimulatie {
         	//System.out.println("Begin van de dag." );
 
             // Willekeurig aantal mensen binnen de aangegeven scope
-            int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+            //int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+        	int aantalpersonen = 89;
 
             // laat de personen maar komen...
             for(int j = 0; j < aantalpersonen; j++) {
