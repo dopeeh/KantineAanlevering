@@ -44,6 +44,10 @@ public class Persoon {
 		this.geslacht = geslacht;
 	}
 	
+	public void setBetaalwijze(Betaalwijze betaalwijze) {
+		this.betaalwijze = betaalwijze;
+	}
+	
 	public int getBSN() {
 		return BSN;
 	}
@@ -62,6 +66,10 @@ public class Persoon {
 	
 	public char getGeslacht() {
 		return geslacht;
+	}
+	
+	public Betaalwijze getBetaalwijze() {
+		return betaalwijze;
 	}
 	
 	// Control for geslacht

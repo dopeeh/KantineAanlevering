@@ -22,6 +22,7 @@ public class Pinpas extends Betaalwijze {
     		saldo = saldo-tebetalen; 
     		return true;
     	}
+    	System.out.println("Betaling mislukt");
     	return false;
    
     }

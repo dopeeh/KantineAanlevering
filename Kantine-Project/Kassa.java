@@ -20,10 +20,13 @@ public class Kassa {
      *
      * @param klant die moet afrekenen
      */
-    public void rekenAf(Dienblad klant) {    	
+    public void rekenAf(Dienblad dienblad) {    	
     	//Daadwerkelijke berekeningen
-    	totaalArtikelen += getAantalArtikelenDienblad(klant);
-    	geldInKassa += getTotaalPrijsDienblad(klant);
+    	totaalArtikelen += getAantalArtikelenDienblad(dienblad);
+    	geldInKassa += getTotaalPrijsDienblad(dienblad);
+    	Persoon persoon = dienblad.getKlant();
+    	Betaalwijze betaalwijze = persoon.getBetaalwijze();
+    	betaalwijze.betaal(getTotaalPrijsDienblad(dienblad));
     }
     
     /**

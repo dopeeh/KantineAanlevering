@@ -205,12 +205,12 @@ public class KantineSimulatie {
 		for(double dik: result) {
 			//System.out.println(dik);
 		}
-		
+		/*
 		Pinpas pinpas = new Pinpas();
 		pinpas.setSaldo(100);
 		pinpas.setKredietLimiet(150);
 		System.out.println(pinpas.betaal(150));
 		System.out.println(pinpas.getSaldo());
-		
+		*/
 	}
 }
