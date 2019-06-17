@@ -4,8 +4,8 @@ public class Student extends Persoon {
 	public int studentnummer;
 	public String studierichting;
 
-	public Student(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, int studentnummer, String studierichting) {
-		super(BSN, voornaam, achternaam, geboortedatum, geslacht);
+	public Student(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, Betaalwijze betaalwijze, int studentnummer, String studierichting) {
+		super(BSN, voornaam, achternaam, geboortedatum, geslacht, betaalwijze);
 		// TODO Auto-generated constructor stub
 		
 		this.studentnummer = studentnummer;

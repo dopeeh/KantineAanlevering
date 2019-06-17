@@ -5,8 +5,8 @@ public class KantineMedewerker extends Persoon implements KortingskaartHouder{
 	public boolean kassatoegestaan;
 	
 
-	public KantineMedewerker(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, int medewerkernummer, boolean kassatoegestaan) {
-		super(BSN, voornaam, achternaam, geboortedatum, geslacht);
+	public KantineMedewerker(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, Betaalwijze betaalwijze, int medewerkernummer, boolean kassatoegestaan) {
+		super(BSN, voornaam, achternaam, geboortedatum, geslacht, betaalwijze);
 		// TODO Auto-generated constructor stub
 		
 		this.medewerkernummer = medewerkernummer;

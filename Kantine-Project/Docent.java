@@ -4,9 +4,9 @@ public class Docent extends Persoon implements KortingskaartHouder{
 	String afdeling;
 	String vierLetterCode;
 	
-	public Docent(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, String afdeling, String vierLetterCode) 
+	public Docent(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, Betaalwijze betaalwijze, String afdeling, String vierLetterCode) 
 	{
-		super(BSN, voornaam, achternaam, geboortedatum, geslacht);
+		super(BSN, voornaam, achternaam, geboortedatum, geslacht, betaalwijze);
 		this.afdeling = afdeling;
 		this.vierLetterCode = vierLetterCode;
 	}

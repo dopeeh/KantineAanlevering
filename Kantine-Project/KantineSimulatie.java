@@ -121,22 +121,34 @@ public class KantineSimulatie {
             for(int j = 0; j < aantalPersonen; j++) {
             	
             	int k = getRandomValue(1, 100);
+            	int randBetaal = getRandomValue(0, 1);
+            	int randSaldo = getRandomValue(10, 100);
                 // maak persoon en dienblad aan, koppel ze
             	
             	Persoon klant = null;
-            	if (k >= 1 && k <= 89)
+            	if (k <= 89)
             	{
                 	klant = new Student();
             	}
-            	if (k >= 90 && k <= 99)
+            	else if (k <= 99)
             	{
                 	klant = new Docent();
             	}
-            	if (k == 100)
+            	else if (k == 100)
             	{
                 	klant = new KantineMedewerker();
             	}
             	
+            	if (randBetaal == 0)
+            	{
+                	klant.setBetaalwijze(new Pinpas());
+                	((Pinpas)klant.getBetaalwijze()).setKredietLimiet(randSaldo/2);
+            	}
+            	else
+            	{
+            		klant.setBetaalwijze(new Contant());
+            	}
+            	klant.getBetaalwijze().setSaldo(randSaldo);
             	Dienblad dienblad = new Dienblad(klant);
             	
                 // en bedenk hoeveel artikelen worden gepakt
@@ -205,12 +217,12 @@ public class KantineSimulatie {
 		for(double dik: result) {
 			//System.out.println(dik);
 		}
-		
+		/*
 		Pinpas pinpas = new Pinpas();
 		pinpas.setSaldo(100);
 		pinpas.setKredietLimiet(150);
 		System.out.println(pinpas.betaal(150));
 		System.out.println(pinpas.getSaldo());
-		
+		*/
 	}
 }

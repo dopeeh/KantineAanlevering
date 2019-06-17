@@ -20,29 +20,37 @@ public class Kassa {
      *
      * @param klant die moet afrekenen
      */
-    public void rekenAf(Dienblad klant) {    	
+    public void rekenAf(Dienblad dienblad) {    	
     	//Daadwerkelijke berekeningen
+    	Persoon persoon = dienblad.getKlant();
+    	Betaalwijze betaalwijze = persoon.getBetaalwijze();
+    	
     	double kortingsPercentage = 0;
     	double kortingsLimiet = 0;
     	double kortingInGeld = 0;
-    	if (klant.getKlant() instanceof Docent)
+    	double totaalTeBetalenNaKorting = 0;
+    	
+    	if (dienblad.getKlant() instanceof Docent)
     	{
-    		kortingsPercentage = ((Docent) klant.getKlant()).geefKortingsPercentage();
-    		kortingsLimiet = ((Docent) klant.getKlant()).geefMaximum();
+    		kortingsPercentage = ((Docent) persoon).geefKortingsPercentage();
+    		kortingsLimiet = ((Docent) persoon).geefMaximum();
     	}
-    	else if (klant.getKlant() instanceof KantineMedewerker)
+    	else if (dienblad.getKlant() instanceof KantineMedewerker)
     	{
-    		kortingsPercentage = ((KantineMedewerker) klant.getKlant()).geefKortingsPercentage();
-    		kortingsLimiet = ((KantineMedewerker) klant.getKlant()).geefMaximum();
+    		kortingsPercentage = ((KantineMedewerker) persoon).geefKortingsPercentage();
+    		kortingsLimiet = ((KantineMedewerker) persoon).geefMaximum();
     	}
     	
-    	kortingInGeld = (getTotaalPrijsDienblad(klant)*(kortingsPercentage));
+    	kortingInGeld = (getTotaalPrijsDienblad(dienblad)*(kortingsPercentage));
     	if (kortingsLimiet != 0 && kortingInGeld > kortingsLimiet)
     	{
     		kortingInGeld = kortingsLimiet;
     	}
-    	geldInKassa += getTotaalPrijsDienblad(klant) - kortingInGeld;
-    	totaalArtikelen += getAantalArtikelenDienblad(klant);
+    	totaalTeBetalenNaKorting = getTotaalPrijsDienblad(dienblad) - kortingInGeld;
+    	betaalwijze.betaal(totaalTeBetalenNaKorting);
+    	
+    	geldInKassa += totaalTeBetalenNaKorting;
+    	totaalArtikelen += getAantalArtikelenDienblad(dienblad);
     }
     
     /**

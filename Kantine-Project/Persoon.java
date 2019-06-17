@@ -7,12 +7,13 @@ public class Persoon {
 	private char geslacht;
 	private Betaalwijze betaalwijze;
 	
-	public Persoon  (int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht) {
+	public Persoon  (int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, Betaalwijze betaalwijze) {
 		this.BSN = BSN;
 		this.voornaam = voornaam;
 		this.achternaam = achternaam;
 		this.geboortedatum = new Datum(geboortedatum);
 		this.geslacht = geslacht;
+		this.betaalwijze = betaalwijze;
 	}
 	
 	public Persoon() {
@@ -44,6 +45,10 @@ public class Persoon {
 		this.geslacht = geslacht;
 	}
 	
+	public void setBetaalwijze(Betaalwijze betaalwijze) {
+		this.betaalwijze = betaalwijze;
+	}
+	
 	public int getBSN() {
 		return BSN;
 	}
@@ -62,6 +67,10 @@ public class Persoon {
 	
 	public char getGeslacht() {
 		return geslacht;
+	}
+	
+	public Betaalwijze getBetaalwijze() {
+		return betaalwijze;
 	}
 	
 	// Control for geslacht
