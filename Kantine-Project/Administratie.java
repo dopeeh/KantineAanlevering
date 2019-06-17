@@ -1,5 +1,11 @@
+import java.util.ArrayList;
+
 public class Administratie {
 	final static int DAYS_IN_WEEK = 7;
+	
+	private Administratie() {
+		
+	}
 	
     /**
      * Deze methode berekent van de int array aantal de gemiddelde waarde
@@ -7,7 +13,7 @@ public class Administratie {
      * @param aantal
      * @return het gemiddelde
      */
-    public static double berekenGemiddeldAantal(int[] aantal) {
+    public static double berekenGemiddeldAantal(ArrayList<Integer> aantal) {
     	double result = 0;
     	int counter = 0;
         for(int i: aantal) {
@@ -23,7 +29,7 @@ public class Administratie {
      * @param omzet
      * @return het gemiddelde
      */
-    public static double berekenGemiddeldeOmzet(double[] omzet) {
+    public static double berekenGemiddeldeOmzet(ArrayList<Double> omzet) {
     	double result = 0;
     	int counter = 0;
         for(double i: omzet) {
