@@ -205,6 +205,7 @@ public class KantineSimulatie {
 		for(double dik: result) {
 			//System.out.println(dik);
 		}
+		
 		/*
 		Pinpas pinpas = new Pinpas();
 		pinpas.setSaldo(100);
