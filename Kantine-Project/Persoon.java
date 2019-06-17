@@ -7,12 +7,13 @@ public class Persoon {
 	private char geslacht;
 	private Betaalwijze betaalwijze;
 	
-	public Persoon  (int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht) {
+	public Persoon  (int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, Betaalwijze betaalwijze) {
 		this.BSN = BSN;
 		this.voornaam = voornaam;
 		this.achternaam = achternaam;
 		this.geboortedatum = new Datum(geboortedatum);
 		this.geslacht = geslacht;
+		this.betaalwijze = betaalwijze;
 	}
 	
 	public Persoon() {

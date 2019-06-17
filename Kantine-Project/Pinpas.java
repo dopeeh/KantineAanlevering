@@ -18,6 +18,7 @@ public class Pinpas extends Betaalwijze {
     
     public void betaal(double tebetalen) throws TeWeinigGeldException {
         // method body omitted
+    	
     	if (saldo >= tebetalen && kredietlimiet >= tebetalen){
     		saldo = saldo-tebetalen; 
     	}

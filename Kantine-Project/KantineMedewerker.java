@@ -1,12 +1,12 @@
 
-public class KantineMedewerker extends Persoon {
+public class KantineMedewerker extends Persoon implements KortingskaartHouder{
 	
 	public int medewerkernummer;
 	public boolean kassatoegestaan;
 	
 
-	public KantineMedewerker(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, int medewerkernummer, boolean kassatoegestaan) {
-		super(BSN, voornaam, achternaam, geboortedatum, geslacht);
+	public KantineMedewerker(int BSN, String voornaam, String achternaam, String geboortedatum, char geslacht, Betaalwijze betaalwijze, int medewerkernummer, boolean kassatoegestaan) {
+		super(BSN, voornaam, achternaam, geboortedatum, geslacht, betaalwijze);
 		// TODO Auto-generated constructor stub
 		
 		this.medewerkernummer = medewerkernummer;
@@ -35,5 +35,24 @@ public class KantineMedewerker extends Persoon {
 	public boolean getKassatoegestaan() {
 		return kassatoegestaan;
 	}
+
+
+	@Override
+	public double geefKortingsPercentage() {
+		return 0.35;
+	}
+
+	@Override
+	public boolean heeftMaximum() {
+		return false;
+	}
+
+	@Override
+	public double geefMaximum() {
+		return 0;
+	}
+
+	
+	
 
 }

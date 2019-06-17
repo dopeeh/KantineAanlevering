@@ -22,11 +22,40 @@ public class Kassa {
      */
     public void rekenAf(Dienblad dienblad) {    	
     	//Daadwerkelijke berekeningen
-    	totaalArtikelen += getAantalArtikelenDienblad(dienblad);
-    	geldInKassa += getTotaalPrijsDienblad(dienblad);
     	Persoon persoon = dienblad.getKlant();
     	Betaalwijze betaalwijze = persoon.getBetaalwijze();
-    	betaalwijze.betaal(getTotaalPrijsDienblad(dienblad));
+    	
+    	double kortingsPercentage = 0;
+    	double kortingsLimiet = 0;
+    	double kortingInGeld = 0;
+    	double totaalTeBetalenNaKorting = 0;
+    	
+    	if (dienblad.getKlant() instanceof Docent)
+    	{
+    		kortingsPercentage = ((Docent) persoon).geefKortingsPercentage();
+    		kortingsLimiet = ((Docent) persoon).geefMaximum();
+    	}
+    	else if (dienblad.getKlant() instanceof KantineMedewerker)
+    	{
+    		kortingsPercentage = ((KantineMedewerker) persoon).geefKortingsPercentage();
+    		kortingsLimiet = ((KantineMedewerker) persoon).geefMaximum();
+    	}
+    	
+    	kortingInGeld = (getTotaalPrijsDienblad(dienblad)*(kortingsPercentage));
+    	if (kortingsLimiet != 0 && kortingInGeld > kortingsLimiet)
+    	{
+    		kortingInGeld = kortingsLimiet;
+    	}
+    	totaalTeBetalenNaKorting = getTotaalPrijsDienblad(dienblad) - kortingInGeld;
+    	try {
+			betaalwijze.betaal(totaalTeBetalenNaKorting);
+		} catch (TeWeinigGeldException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	geldInKassa += totaalTeBetalenNaKorting;
+    	totaalArtikelen += getAantalArtikelenDienblad(dienblad);
     }
     
     /**
