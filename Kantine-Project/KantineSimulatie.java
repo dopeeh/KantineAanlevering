@@ -191,7 +191,7 @@ public class KantineSimulatie {
 		
 		int test = ks.getRandomValue(1, 2);
 		
-		System.out.println(test);
+		//System.out.println(test);
 		
 		int[] testing1 = {45, 56, 34, 39, 40, 31};
 		double[] testing2 = {567.70, 498.25, 458.90};
@@ -203,7 +203,14 @@ public class KantineSimulatie {
 		double[] result = Administratie.berekenDagOmzet(testing3);
 		
 		for(double dik: result) {
-			System.out.println(dik);
+			//System.out.println(dik);
 		}
+		
+		Pinpas pinpas = new Pinpas();
+		pinpas.setSaldo(100);
+		pinpas.setKredietLimiet(150);
+		System.out.println(pinpas.betaal(150));
+		System.out.println(pinpas.getSaldo());
+		
 	}
 }

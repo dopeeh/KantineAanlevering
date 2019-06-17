@@ -9,6 +9,7 @@ public class Pinpas extends Betaalwijze {
      */
     public void setKredietLimiet(double kredietlimiet) {
         // method body omitted
+    	this.kredietlimiet = kredietlimiet;
     }
 	
     /**
@@ -17,5 +18,11 @@ public class Pinpas extends Betaalwijze {
     
     public boolean betaal(double tebetalen) {
         // method body omitted
+    	if (saldo >= tebetalen && kredietlimiet >= tebetalen){
+    		saldo = saldo-tebetalen; 
+    		return true;
+    	}
+    	return false;
+   
     }
 }
