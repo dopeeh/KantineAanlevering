@@ -1,5 +1,5 @@
 
-public class Docent extends Persoon {
+public class Docent extends Persoon implements KortingskaartHouder{
 
 	String afdeling;
 	String vierLetterCode;
@@ -29,6 +29,21 @@ public class Docent extends Persoon {
 
 	public void setVierLetterCode(String vierLetterCode) {
 		this.vierLetterCode = vierLetterCode;
+	}
+
+	@Override
+	public double geefKortingsPercentage() {
+		return 0.25;
+	}
+
+	@Override
+	public boolean heeftMaximum() {
+		return true;
+	}
+
+	@Override
+	public double geefMaximum() {
+		return 1;
 	}
 
 }

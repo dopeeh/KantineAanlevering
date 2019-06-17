@@ -187,7 +187,7 @@ public class KantineSimulatie {
     	}
     	
     	KantineSimulatie ks = new KantineSimulatie();
-		//ks.simuleer(dagen);
+		ks.simuleer(dagen);
 		
 		int test = ks.getRandomValue(1, 2);
 		

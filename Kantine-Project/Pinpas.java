@@ -23,6 +23,6 @@ public class Pinpas extends Betaalwijze {
     		return true;
     	}
     	return false;
-   
+    	
     }
 }

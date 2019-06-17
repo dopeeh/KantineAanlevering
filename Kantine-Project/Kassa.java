@@ -22,8 +22,27 @@ public class Kassa {
      */
     public void rekenAf(Dienblad klant) {    	
     	//Daadwerkelijke berekeningen
+    	double kortingsPercentage = 0;
+    	double kortingsLimiet = 0;
+    	double kortingInGeld = 0;
+    	if (klant.getKlant() instanceof Docent)
+    	{
+    		kortingsPercentage = ((Docent) klant.getKlant()).geefKortingsPercentage();
+    		kortingsLimiet = ((Docent) klant.getKlant()).geefMaximum();
+    	}
+    	else if (klant.getKlant() instanceof KantineMedewerker)
+    	{
+    		kortingsPercentage = ((KantineMedewerker) klant.getKlant()).geefKortingsPercentage();
+    		kortingsLimiet = ((KantineMedewerker) klant.getKlant()).geefMaximum();
+    	}
+    	
+    	kortingInGeld = (getTotaalPrijsDienblad(klant)*(kortingsPercentage));
+    	if (kortingsLimiet != 0 && kortingInGeld > kortingsLimiet)
+    	{
+    		kortingInGeld = kortingsLimiet;
+    	}
+    	geldInKassa += getTotaalPrijsDienblad(klant) - kortingInGeld;
     	totaalArtikelen += getAantalArtikelenDienblad(klant);
-    	geldInKassa += getTotaalPrijsDienblad(klant);
     }
     
     /**
