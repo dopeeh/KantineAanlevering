@@ -1,15 +1,6 @@
 import java.util.*;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 
 public class KantineSimulatie {
-	
-	private static final EntityManagerFactory ENTITY_MANAGER_FACTORY =
-	Persistence.createEntityManagerFactory("JPAVoorbeeld");
-	private EntityManager manager;
-
 
     // kantine
     private Kantine kantine;
@@ -199,7 +190,6 @@ public class KantineSimulatie {
     }
     
     public static void main(String[] args) {
-    	
     	int dagen;
     	
     	if (args.length == 0) {
@@ -236,14 +226,4 @@ public class KantineSimulatie {
 		System.out.println(pinpas.getSaldo());
 		*/
 	}
-    
-    public void runVoorbeeld() 
-    {
-    	manager = ENTITY_MANAGER_FACTORY.createEntityManager();
-    	
-    	//transactions weggelaten
-    	
-    	manager.close();
-    	ENTITY_MANAGER_FACTORY.close();
-    }
 }
