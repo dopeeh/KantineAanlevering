@@ -119,15 +119,8 @@ public class Factuur implements Serializable {
 	* @return een printbaar bonnetje
 	*/
 	public String toString() {
-		String bon = "";
-		
-		for(Artikel artikel : dienblad.getArtikelen()) {
-			bon += artikel.getNaam() + " - " + artikel.getPrijs();
-		};
-		
-		bon += "Totaal = " + getTotaal(dienblad) + " betaald op " + datumTijd;
-		
-		return bon;
+		String bon;
+		return "";
 	}
 
 }
