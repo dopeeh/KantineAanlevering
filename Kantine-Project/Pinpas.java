@@ -21,8 +21,8 @@ public class Pinpas extends Betaalwijze {
     	
     	if (saldo >= tebetalen && kredietlimiet >= tebetalen){
     		saldo = saldo-tebetalen; 
-    	} else {
-    		throw new TeWeinigGeldException("Betaling mislukt. Te laag saldo!");
     	}
+    	System.out.println("Betaling mislukt");
+    	throw new TeWeinigGeldException("Betaling mislukt. Te laag saldo!");
     }
 }
