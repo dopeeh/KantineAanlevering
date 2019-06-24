@@ -26,7 +26,7 @@
 
             <!-- The database username -->
             <!-- VERVANG DEZE WAARDEN MET DE GELDENDE WAARDEN OP JE EIGEN SYSTEEM -->
-            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdb 	c.user" value="root" />
 
             <!-- The database password -->
             <!-- VERVANG DEZE WAARDEN MET DE GELDENDE WAARDEN OP JE EIGEN SYSTEEM -->

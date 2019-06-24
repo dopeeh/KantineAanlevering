@@ -9,4 +9,5 @@ public class Contant extends Betaalwijze {
     		saldo -= tebetalen;
     	}
     }
+    
 }
