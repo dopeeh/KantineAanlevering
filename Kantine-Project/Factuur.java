@@ -11,17 +11,17 @@ import java.io.Serializable;
 
 public class Factuur implements Serializable {
 	
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	//@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name = "date")
+	//@Column(name = "date")
 	private LocalDateTime datumTijd;
 	
-	@Column(name = "korting")
+	//@Column(name = "korting")
 	private double korting;
 	
-	@Column(name = "totaal")
+	//@Column(name = "totaal")
 	private double totaal;
 	
 	private Dienblad dienblad;
