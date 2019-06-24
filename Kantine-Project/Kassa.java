@@ -22,57 +22,24 @@ public class Kassa {
      */
     public void rekenAf(Dienblad dienblad) {    	
     	//Daadwerkelijke berekeningen
-    	Persoon persoon = dienblad.getKlant();
-    	Betaalwijze betaalwijze = persoon.getBetaalwijze();
     	
-    	double kortingsPercentage = 0;
-    	double kortingsLimiet = 0;
-    	double kortingInGeld = 0;
-    	double totaalTeBetalenNaKorting = 0;
+    	Betaalwijze betaalwijze = dienblad.getKlant().getBetaalwijze();
+    	Factuur factuur = new Factuur(dienblad);
     	
-    	if (dienblad.getKlant() instanceof Docent)
-    	{
-    		kortingsPercentage = ((Docent) persoon).geefKortingsPercentage();
-    		kortingsLimiet = ((Docent) persoon).geefMaximum();
-    	}
-    	else if (dienblad.getKlant() instanceof KantineMedewerker)
-    	{
-    		kortingsPercentage = ((KantineMedewerker) persoon).geefKortingsPercentage();
-    		kortingsLimiet = ((KantineMedewerker) persoon).geefMaximum();
-    	}
     	
-    	kortingInGeld = (getTotaalPrijsDienblad(dienblad)*(kortingsPercentage));
-    	if (kortingsLimiet != 0 && kortingInGeld > kortingsLimiet)
-    	{
-    		kortingInGeld = kortingsLimiet;
-    	}
-    	totaalTeBetalenNaKorting = getTotaalPrijsDienblad(dienblad) - kortingInGeld;
+    	
     	try {
-			betaalwijze.betaal(totaalTeBetalenNaKorting);
+			betaalwijze.betaal(factuur.getTotaalMetKorting(dienblad));
 		} catch (TeWeinigGeldException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
-    	geldInKassa += totaalTeBetalenNaKorting;
+    	geldInKassa += factuur.getTotaalMetKorting(dienblad);
     	totaalArtikelen += getAantalArtikelenDienblad(dienblad);
     }
     
-    /**
-     * Berekent de totaalprijs van de artikelen in het gegeven dienblad.
-     * 
-     * @param dienblad
-     * @return totaalprijs van het dienblad
-     */
-    public double getTotaalPrijsDienblad(Dienblad dienblad) {
-    	double totaalPrijs = 0;
-    	Iterator iterator = dienblad.getArtikelen().iterator();
-    	
-    	while(iterator.hasNext()) {
-    		totaalPrijs += ((Artikel) iterator.next()).getPrijs();
-    	}
-    	return totaalPrijs;
-    }
+    
     
     /**
      * Geeft het aantal artikelen in het dienblad terug.
